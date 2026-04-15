@@ -160,15 +160,17 @@ app.use((req, res, next) => {
   res.header("Cross-Origin-Resource-Policy", "cross-origin");
   next();
 });
+// 1. Static files allow karo
 app.use(express.static(path.join(__dirname)));
-const path = require('path');
 
-app.use(express.static(path.join(__dirname))); 
+// 2. Widget Bundle serve karne ka sahi rasta
 app.get('/widget.bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'widget.bundle.js'));
 });
-app.get('/test-file', (req, res) => {
-  res.sendFile(path.join(__dirname, 'widget.bundle.js'));
+
+// 3. Backend check karne ke liye test route
+app.get('/test-backend', (req, res) => {
+  res.send("Backend is UP and running!");
 });
 app.use(express.json({ limit: "20kb" }));
 app.use(morgan("dev"));
