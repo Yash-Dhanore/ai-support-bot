@@ -164,7 +164,9 @@ app.use(express.static(path.join(__dirname)));
 const path = require('path');
 
 app.use(express.static(path.join(__dirname))); 
-
+app.get('/widget.bundle.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'widget.bundle.js'));
+});
 app.get('/test-file', (req, res) => {
   res.sendFile(path.join(__dirname, 'widget.bundle.js'));
 });
