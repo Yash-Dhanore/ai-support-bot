@@ -36,7 +36,7 @@
   const CONFIG = {
     apiUrl:
       currentScript.getAttribute("data-api-url") ||
-      "https://my-ai-bot-backend.onrender.com",
+      "https://my-ai-bot-backend.onrender.com/widget.bundle.js",
     theme: currentScript.getAttribute("data-theme") || "dark",
     companyName:
       currentScript.getAttribute("data-company-name") || "Support",
