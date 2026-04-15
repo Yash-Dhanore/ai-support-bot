@@ -154,15 +154,17 @@ const cors = require('cors'); // Ye line check kar lena upar honi chahiye
 app.use(cors({ origin: '*' }));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  // Ye line sabse important hai NotSameOrigin error hatane ke liye:
   res.header("Cross-Origin-Resource-Policy", "cross-origin");
   next();
 });
-const path = require('path'); // Check karo ye file ke sabse upar ho
+app.use(express.static(path.join(__dirname)));
+const path = require('path');
 
-// Inhe CORS ke niche aur routes ke upar dalo
 app.use(express.static(path.join(__dirname))); 
 
-// Ek test route dalo ye check karne ke liye ki file wahi hai ya nahi
 app.get('/test-file', (req, res) => {
   res.sendFile(path.join(__dirname, 'widget.bundle.js'));
 });
