@@ -157,6 +157,15 @@ app.use((req, res, next) => {
   res.header("Cross-Origin-Resource-Policy", "cross-origin");
   next();
 });
+const path = require('path'); // Check karo ye file ke sabse upar ho
+
+// Inhe CORS ke niche aur routes ke upar dalo
+app.use(express.static(path.join(__dirname))); 
+
+// Ek test route dalo ye check karne ke liye ki file wahi hai ya nahi
+app.get('/test-file', (req, res) => {
+  res.sendFile(path.join(__dirname, 'widget.bundle.js'));
+});
 app.use(express.json({ limit: "20kb" }));
 app.use(morgan("dev"));
  
