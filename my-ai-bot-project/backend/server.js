@@ -150,12 +150,13 @@ const app = express();
 app.use(helmet({
   contentSecurityPolicy: false, // Widget loader needs flexibility
 }));
-app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS
-    ? process.env.ALLOWED_ORIGINS.split(",").map(o => o.trim())
-    : "*",
-  methods: ["GET", "POST"],
-}));
+const cors = require('cors'); // Ye line check kar lena upar honi chahiye
+app.use(cors({ origin: '*' }));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Cross-Origin-Resource-Policy", "cross-origin");
+  next();
+});
 app.use(express.json({ limit: "20kb" }));
 app.use(morgan("dev"));
  
