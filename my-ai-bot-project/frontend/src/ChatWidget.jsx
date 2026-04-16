@@ -619,10 +619,8 @@ export default function ChatWidget() {
   // RENDER
   // ────────────────────────────────────────────────────────────────────────────
 return (
-  <div style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999, overflow: "visible", fontFamily: "'DM Sans', sans-serif" }}>
-      {/* ── FAB Button ─────────────────────────────────────────────────────── */}
-      <AnimatePresence>
-        {!isOpen && (
+  <div style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999, width: "auto", height: "auto" }}>
+    <AnimatePresence>
           <motion.button
             key="fab"
             variants={FAB_VARIANTS}
@@ -689,7 +687,7 @@ return (
               </motion.div>
             )}
           </motion.button>
-        )}
+        
       </AnimatePresence>
 
       {/* ── Chat Window ────────────────────────────────────────────────────── */}
