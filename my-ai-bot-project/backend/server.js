@@ -150,7 +150,6 @@ const app = express();
 app.use(helmet({
   contentSecurityPolicy: false, // Widget loader needs flexibility
 }));
-const cors = require('cors'); // Ye line check kar lena upar honi chahiye
 app.use(cors({ origin: '*' }));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
