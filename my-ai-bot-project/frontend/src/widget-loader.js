@@ -36,7 +36,7 @@
   const CONFIG = {
     apiUrl:
       currentScript.getAttribute("data-api-url") ||
-      "https://my-ai-bot-backend.onrender.com/widget.bundle.js",
+      "https://my-ai-bot-backend.onrender.com",
     theme: currentScript.getAttribute("data-theme") || "dark",
     companyName:
       currentScript.getAttribute("data-company-name") || "Support",
@@ -88,7 +88,7 @@
   tailwindScript.onload = () => {
     // Tailwind normally scans document.head; tell it to target our shadow root
     if (window.tailwind && window.tailwind.config) {
-      window.tailwind.config({ corePlugins: { preflight: false } });
+      window.tailwind.config = { corePlugins: { preflight: false } };
     }
   };
   // Tailwind CDN writes <style> to document.head by default, which is fine –
