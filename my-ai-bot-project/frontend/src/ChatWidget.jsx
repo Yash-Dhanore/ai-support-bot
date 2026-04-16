@@ -619,7 +619,7 @@ export default function ChatWidget() {
   // RENDER
   // ────────────────────────────────────────────────────────────────────────────
 return (
-  <div style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999, width: "auto", height: "auto" }}>
+  <div style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999, width: "auto", height: "auto", overflow: "visible" }}>
     <AnimatePresence>
           <motion.button
             key="fab"
