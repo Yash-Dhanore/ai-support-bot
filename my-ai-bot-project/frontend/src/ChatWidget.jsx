@@ -618,10 +618,8 @@ export default function ChatWidget() {
   // ────────────────────────────────────────────────────────────────────────────
   // RENDER
   // ────────────────────────────────────────────────────────────────────────────
-  return (
-    <div style={{ position: "fixed", bottom: 0, right: 0,
-      width: 0, height: 0, overflow: "visible", fontFamily: "'DM Sans', sans-serif" }}>
-
+return (
+  <div style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9999, overflow: "visible", fontFamily: "'DM Sans', sans-serif" }}>
       {/* ── FAB Button ─────────────────────────────────────────────────────── */}
       <AnimatePresence>
         {!isOpen && (
